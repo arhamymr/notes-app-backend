@@ -1,37 +1,11 @@
-const {
-  addNotesHandler,
-  getAllNotesHandler,
-  getNoteByIdHandler,
-  editNoteByIdHandler,
-  deleteNoteByIdHandler,
-} = require('./handler');
+const notesRoutes = require("./routes/notesRoutes");
+const bookshelfRoutes = require("./routes/bookshelfRoutes");
+const ytRoutes = require("./routes/youtubeRoutes");
 
 const routes = [
-  {
-    method: 'POST',
-    path: '/notes',
-    handler: addNotesHandler,
-  },
-  {
-    method: 'GET',
-    path: '/notes',
-    handler: getAllNotesHandler,
-  },
-  {
-    method: 'GET',
-    path: '/notes/{id}',
-    handler: getNoteByIdHandler,
-  },
-  {
-    method: 'PUT',
-    path: '/notes/{id}',
-    handler: editNoteByIdHandler,
-  },
-  {
-    method: 'DELETE',
-    path: '/notes/{id}',
-    handler: deleteNoteByIdHandler,
-  }
+  ...notesRoutes,
+  ...ytRoutes,
+  ...bookshelfRoutes,
 ]
 
 module.exports = routes;
